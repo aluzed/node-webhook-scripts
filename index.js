@@ -1,10 +1,16 @@
 const express = require('express');
 const app = express();
 const runCmd = require('./runcmd');
+const cfg = require('./config');
 const hooks = require('./hooks.json');
 
 hooks.forEach(hook => {
-  app.get(hook.path, function(req, res) {
+  app.post(hook.path, function (req, res, next) {
+    if(cfg.token && req.headers.token !== cfg.token) {
+      return res.status(403).send('Forbidden');
+    }
+    return next();
+  },function(req, res) {
     runCmd(hook.command, hook.cwd)
       .then(stdout => {
         return res.send('DONE : ' + stdout + "\n");
@@ -15,10 +21,14 @@ hooks.forEach(hook => {
   });
 })
 
-app.get('/*', function(req, res) {
+app
+.post('/*', function(req, res) {
+  return res.status(404).send('Not found');
+})
+.get('/*', function(req, res) {
   return res.status(404).send('Not found');
 })
 
-app.listen('9550', function() {
-  console.log('listening on 9550');
+app.listen(cfg.port, function() {
+  console.log(`listening on ${cfg.port}`);
 })
