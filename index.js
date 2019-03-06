@@ -15,9 +15,9 @@ hooks.forEach(hook => {
     return next();
   },function(req, res) {
     if(verbose) {
-      console.log(`${hook.method.toUpperCase()} ON ${hook.path}`);
+      console.log(`webhook ${hook.method.toUpperCase()} ON ${hook.path}`);
     }
-    
+
     runCmd(hook.command, hook.cwd)
       .then(stdout => {
         return res.send('DONE : ' + stdout + "\n");

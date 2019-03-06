@@ -60,6 +60,12 @@ You can create a service or simply run :
 node index.js
 ```
 
+To display webhook trigger you can run with VERBOSE=true in your environment.
+
+```
+VERBOSE=true node index.js
+```
+
 ## Test Script
 
 Let's make some test script `/var/www/scripts/test.sh`
