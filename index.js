@@ -4,6 +4,8 @@ const runCmd = require('./runcmd');
 const cfg = require('./config');
 const hooks = require('./hooks.json');
 
+const verbose = process.env.VERBOSE ? true : false;
+
 // For each path in hooks.json attach to our router
 hooks.forEach(hook => {
   app[hook.method.toLowerCase() || "get"](hook.path, function (req, res, next) {
@@ -12,6 +14,10 @@ hooks.forEach(hook => {
     }
     return next();
   },function(req, res) {
+    if(verbose) {
+      console.log(`${hook.method.toUpperCase()} ON ${hook.path}`);
+    }
+    
     runCmd(hook.command, hook.cwd)
       .then(stdout => {
         return res.send('DONE : ' + stdout + "\n");
