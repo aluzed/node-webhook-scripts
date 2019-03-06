@@ -1,4 +1,4 @@
-![Logo](https://github.com/aluzed/node-webhook-scripts/raw/master/src/logo.png "Node Webhook Scripts")
+![Logo](https://github.com/aluzed/node-webhook-scripts/raw/master/logo.png "Node Webhook Scripts")
 
 ## Installation 
 
@@ -92,3 +92,6 @@ curl -X POST http://localhost:8080/hello_world [-H 'token: MySecurityT0k3n']
 
 DONE : Hellooooooooo WOOOOOOOORLLLLLLD !
 ```
+
+
+![License](https://i.creativecommons.org/l/by-nc-sa/3.0/fr/88x31.png "CC BY NC SA")
