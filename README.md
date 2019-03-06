@@ -1,4 +1,4 @@
-[logo]: https://github.com/aluzed/node-webhook-scripts/raw/master/src/logo.png "Logo"
+![Logo](https://github.com/aluzed/node-webhook-scripts/raw/master/src/logo.png "Node Webhook Scripts")
 
 ## Installation 
 
