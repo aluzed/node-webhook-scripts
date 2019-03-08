@@ -10,19 +10,19 @@ Run :
 git clone git@github.com:aluzed/node-webhook-scripts.git
 ```
 
-Create a `hooks.json` and a `config.js` file.
+Create a `hooks.js` and a `config.js` file.
 
 ## Create a hook 
 
-In hooks.json : 
+In hooks.js : 
 
-```json
-[
+```js
+module.exports = [
   {
-    "path": "/my_beautiful_hook",
-    "command": "sh /var/my/scripts/path/script.sh", 
-    "cwd": "/var/my/scripts/path",
-    "method": "post"
+    path: "/my_beautiful_hook",
+    command: "sh /var/my/scripts/path/script.sh", 
+    cwd: "/var/my/scripts/path",
+    method: "post"
   }
 ]
 ```
@@ -101,5 +101,8 @@ curl -X POST http://localhost:8080/hello_world [-H 'token: MySecurityT0k3n']
 DONE : Hellooooooooo WOOOOOOOORLLLLLLD !
 ```
 
+## Callback :
+
+If you prefer use a normal Express callback, you just have to add a "func" key in your hooks.js, with request and result args. (see hooks.sample.js)
 
 ![License](https://i.creativecommons.org/l/by-nc-sa/3.0/fr/88x31.png "CC BY NC SA")
