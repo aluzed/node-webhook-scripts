@@ -76,15 +76,15 @@ Let's make some test script `/var/www/scripts/test.sh`
 echo 'Hellooooooooo WOOOOOOOORLLLLLLD !'
 ```
 
-With this hook configuration in `hooks.json` : 
+With this hook configuration in `hooks.js` : 
 
-```json
-[
+```js
+module.exports = [
   {
-    "path": "/hello_world",
-    "command": "sh /var/www/scripts/test.sh",
-    "cwd": "/var/www/scripts/",
-    "method": "post"
+    path: "/hello_world",
+    command: "sh /var/www/scripts/test.sh",
+    cwd: "/var/www/scripts/",
+    method: "post"
   }
 ]
 ```

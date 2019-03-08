@@ -1,8 +1,0 @@
-[
-  {
-    "path": "/hello",
-    "command": "sh /var/path/to/scripts/tests/hello.sh",
-    "cwd": "/var/path/to/scripts/tests",
-    "method": "post"
-  }
-]
