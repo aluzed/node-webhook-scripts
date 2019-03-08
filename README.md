@@ -2,6 +2,10 @@
 
 # Node Webhook Scripts
 
+## Purpose
+
+Execute a script on HTTP call to automate server tasks.
+
 ## Installation 
 
 Run : 
